@@ -1,27 +1,18 @@
 package com.bcaliskan.postgresdemo.web.controller;
 
-import com.bcaliskan.postgresdemo.controller.AnswerController;
 import com.bcaliskan.postgresdemo.persistence.entity.AnswerEntity;
 import com.bcaliskan.postgresdemo.persistence.entity.QuestionEntity;
-import com.bcaliskan.postgresdemo.persistence.service.AnswerService;
-import com.bcaliskan.postgresdemo.persistence.service.QuestionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.Mockito.when;
-import java.util.List;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,12 +26,6 @@ public class AnswerControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    @Mock
-    private AnswerService answerService;
-
-    @Mock
-    private QuestionService questionService;
 
 
     @Test

@@ -1,6 +1,5 @@
 package com.bcaliskan.postgresdemo.controller;
 
-import com.bcaliskan.postgresdemo.persistence.entity.AnswerEntity;
 import com.bcaliskan.postgresdemo.persistence.entity.QuestionEntity;
 import com.bcaliskan.postgresdemo.persistence.service.QuestionService;
 import com.bcaliskan.postgresdemo.util.JsonUtil;
