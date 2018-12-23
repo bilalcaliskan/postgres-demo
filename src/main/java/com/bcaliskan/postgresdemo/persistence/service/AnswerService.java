@@ -27,6 +27,10 @@ public class AnswerService {
         return answerRepository.findAll(pageable);
     }
 
+    public List<AnswerEntity> getAllAnswers() {
+        return answerRepository.findAll();
+    }
+
     public List<AnswerEntity> getAnswers(Long questionId) {
         return answerRepository.findByQuestionId(questionId);
     }

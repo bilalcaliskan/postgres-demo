@@ -22,9 +22,14 @@ public class AnswerController {
     private AnswerService answerService;
 
 
-    @GetMapping(value = "/get-all-answers", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/answers-page", produces = MediaType.APPLICATION_JSON_VALUE)
     public Page<AnswerEntity> getAllAnswers(Pageable pageable){
         return answerService.getAllAnswers(pageable);
+    }
+
+    @GetMapping(value = "/answers-list", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AnswerEntity>> getAllAnswersByList(){
+        return ResponseEntity.ok().body(answerService.getAllAnswers());
     }
 
     @GetMapping("/questions/{questionId}/answers")

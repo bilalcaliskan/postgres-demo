@@ -1,5 +1,6 @@
 package com.bcaliskan.postgresdemo.controller;
 
+import com.bcaliskan.postgresdemo.persistence.entity.AnswerEntity;
 import com.bcaliskan.postgresdemo.persistence.entity.QuestionEntity;
 import com.bcaliskan.postgresdemo.persistence.service.QuestionService;
 import com.bcaliskan.postgresdemo.util.JsonUtil;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 
@@ -20,9 +22,14 @@ public class QuestionController {
     private QuestionService questionService;
 
 
-    @GetMapping("/questions")
+    @GetMapping("/questions-page")
     public Page<QuestionEntity> getQuestions(Pageable pageable) {
         return questionService.getAllQuestions(pageable);
+    }
+
+    @GetMapping("/questions-list")
+    public ResponseEntity<List<QuestionEntity>> getQuestions() {
+        return ResponseEntity.ok().body(questionService.getAllQuestions());
     }
 
     @PostMapping("/questions")

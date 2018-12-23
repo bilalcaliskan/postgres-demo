@@ -5,6 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class JsonUtil {
+
     private static final String STATUS;
     private static final String TAG;
     private static final String ERR_MSG;
@@ -26,15 +27,19 @@ public class JsonUtil {
         return jsonMap;
     }
 
+    public static Map<String, Object> constructJSON(String tag, boolean status, String errorMessage) {
+        Map<String, Object> jsonMap = new LinkedHashMap<>();
+        jsonMap.put(TAG, tag);
+        jsonMap.put(STATUS, status);
+        jsonMap.put(ERR_MSG, errorMessage);
+        return jsonMap;
+    }
+
     public static Map<String, Object> constructJSON(String tag, String string) {
         Map<String, Object> jsonMap = new LinkedHashMap<>();
         jsonMap.put(TAG, tag);
         jsonMap.put(STATUS, string);
         return jsonMap;
-    }
-
-    public static Map<String, Object> initEmptyMap() {
-        return new LinkedHashMap<>();
     }
 
     public static Map<String, Object> constructJSON(String tag, byte[] array) {
@@ -51,12 +56,8 @@ public class JsonUtil {
         return jsonMap;
     }
 
-    public static Map<String, Object> constructJSON(String tag, boolean status, String errorMessage) {
-        Map<String, Object> jsonMap = new LinkedHashMap<>();
-        jsonMap.put(TAG, tag);
-        jsonMap.put(STATUS, status);
-        jsonMap.put(ERR_MSG, errorMessage);
-        return jsonMap;
+    public static Map<String, Object> initEmptyMap() {
+        return new LinkedHashMap<>();
     }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestBody;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Objects;
 
 
@@ -21,6 +22,10 @@ public class QuestionService {
 
     public Page<QuestionEntity> getAllQuestions(Pageable pageable) {
         return questionRepository.findAll(pageable);
+    }
+
+    public List<QuestionEntity> getAllQuestions() {
+        return questionRepository.findAll();
     }
 
     public boolean createQuestion(@Valid @RequestBody QuestionEntity question) {
