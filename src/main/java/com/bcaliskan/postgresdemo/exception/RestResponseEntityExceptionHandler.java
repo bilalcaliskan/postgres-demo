@@ -17,8 +17,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(value = { IllegalArgumentException.class, IllegalStateException.class })
     public ResponseEntity<Object> handleConflict(RuntimeException ex,
                                                  WebRequest request) {
-        final String bodyOfResponse = "This should be application specific";
-        return handleExceptionInternal(ex, bodyOfResponse,
+        final String responseBody = "This should be application specific";
+        return handleExceptionInternal(ex, responseBody,
                 new HttpHeaders(), HttpStatus.CONFLICT, request);
     }
 
@@ -33,8 +33,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(value = { AccessDeniedException.class, AccessDeniedException.class })
     public ResponseEntity<Object> handleAccessDeniedException(Exception ex,
                                                               WebRequest request) {
-        return new ResponseEntity<>("Access denied message here",
-                new HttpHeaders(), HttpStatus.FORBIDDEN);
+        final String responseBody = "Access denied!";
+        return handleExceptionInternal(ex, responseBody, new HttpHeaders(), HttpStatus.FORBIDDEN, request);
     }
 
 }
