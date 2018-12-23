@@ -6,10 +6,9 @@ import com.bcaliskan.postgresdemo.persistence.repository.AnswerRepository;
 import com.bcaliskan.postgresdemo.persistence.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
